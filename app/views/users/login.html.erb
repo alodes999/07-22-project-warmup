@@ -1,8 +1,10 @@
 <h2>Task Manager System</h2>
 <h3>Login</h3>
 
-<%= form_tag('/authenticate_login') do %>
+<%= form_tag(authenticate_path) do %>
   <input type="text" name="users[email]" placeholder="Email:">
   <input type="password" name="users[password]" placeholder="Password:">
   <input type="submit">
 <% end %>
+
+<a href="<%= new_user_path %>">Create Account</a>

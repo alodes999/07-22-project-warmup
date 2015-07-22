@@ -1,16 +1,16 @@
 Rails.application.routes.draw do
 
-  get "/login" => "users#login"
+  get "/login" => "users#login", :as => 'login'
 
-  post "/authenticate_login" => "users#authenticate_login"
+  post "/authenticate_login" => "users#authenticate_login", :as => 'authenticate'
 
-  get "/users" => "users#index"
+  get "/users" => "users#index", :as => 'users'
 
-  get "/users/new" => "users#new"
+  get "/users/new" => "users#new", :as => 'new_user'
 
   post "/users" => "users#create"
 
-  get "/users/:id/edit" => "users#edit"
+  get "/users/:id/edit" => "users#edit", :as => 'edit_user'
 
   put "/users/:id" => "users#update"
 
@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
   delete "/users/:user_id/tasks/:id" => "tasks#destroy"
 
-  get "/users/:id" => "users#show"
+  get "/users/:id" => "users#show", :as => "user"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

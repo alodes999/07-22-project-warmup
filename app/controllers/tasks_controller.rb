@@ -32,7 +32,7 @@ class TasksController < ApplicationController
   def update
     get_user
     get_task
-    
+
     @task.name = params["tasks"]["name"]
     @task.description = params["tasks"]["description"]
 

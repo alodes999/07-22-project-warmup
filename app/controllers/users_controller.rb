@@ -16,11 +16,11 @@ class UsersController < ApplicationController
         redirect_to "/users/#{@user_email.id.to_s}/tasks"
       else
         @valid = false
-        render "login"
+        render login_path
       end
     else
       @valid = false
-      render "login"
+      render login_path
     end
   end
 
@@ -36,10 +36,8 @@ class UsersController < ApplicationController
     enc_pw = BCrypt::Password.create(params["users"]["password"])
     @users = User.new({"email" => params["users"]["email"], "password" => enc_pw})
 
-    puts enc_pw
-    
     if @users.save
-      redirect_to "/users"
+      redirect_to users_path
     else
       render "new"
     end
@@ -60,7 +58,7 @@ class UsersController < ApplicationController
     @user.password = params["users"]["password"]
 
     if @user.save
-      redirect_to "/users"
+      redirect_to users_path
     else
       render "edit"
     end
@@ -71,7 +69,7 @@ class UsersController < ApplicationController
 
     @user.destroy
 
-    redirect_to "/users"
+    redirect_to users_path
   end
 
 

@@ -5,10 +5,10 @@
 <h2>Edit <%= @user.email %></h2>
 
     <p>Enter information to Edit User </p>
-    
-  <%= form_tag("/users/#{@user.id}", method: "put") do %>    
+
+  <%= form_tag(user_path(@user.id), method: "put") do %>    
     <input type="text" name="users[email]" value="<%= @user.email %>">
     <input type="password" name="users[password]" placeholder="New Password">
-    
+
     <input type="submit">
   <% end %>
