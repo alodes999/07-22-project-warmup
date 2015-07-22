@@ -13,7 +13,7 @@ class UsersController < ApplicationController
       actual_pw = BCrypt::Password.new(@user_email.password)
       if actual_pw == given_pw
         session[:user_id] = @user_email.id
-        redirect_to "/users/#{session[:user_id]}/tasks"
+        redirect_to "/users/#{session[:user_id].to_s}/tasks"
       else
         @valid = false
         render "login"
