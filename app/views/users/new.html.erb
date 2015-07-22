@@ -1,0 +1,13 @@
+<% @users.errors.full_messages.each do |user| %>
+  <p><%= user %></p>
+<% end %>
+
+<h2>Add New User</h2>
+
+  <%= form_tag "/users" method: "post" do %>
+    <p>Enter user info</p>
+    <input type="text" placeholder= "Email" name="users[email]">
+    <input type="password" placeholder= "Password" name="users[password]" >
+    
+    <input type="submit">
+  <% end %>

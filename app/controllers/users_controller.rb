@@ -4,4 +4,27 @@ class UsersController < ApplicationController
     @users = User.all
   end
   
+  def new
+    @user = User.new
+  end
+  
+  def create
+    @user = User.new(params_hash)
+    
+    if @user.save
+      redirect_to "/users"
+    else
+      render "new"
+    end
+  end
+  
+  
+  
+  
+  
+  private
+  
+  def params_hash
+    params["users"].permit(:email, :password)
+  end
 end
