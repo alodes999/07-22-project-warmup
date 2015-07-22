@@ -36,6 +36,7 @@ class UsersController < ApplicationController
     enc_pw = BCrypt::Password.create(params["users"]["password"])
     @users = User.new({"email" => params["users"]["email"], "password" => enc_pw})
 
+    puts enc_pw
     if @users.save
       redirect_to "/users"
     else
