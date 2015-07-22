@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get "/login" => "users#login"
+
   get "/users" => "users#index"
 
   get "/users/new" => "users#new"
