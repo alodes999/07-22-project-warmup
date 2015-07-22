@@ -5,13 +5,13 @@ class UsersController < ApplicationController
   end
   
   def new
-    @user = User.new
+    @users = User.new
   end
   
   def create
-    @user = User.new(params_hash)
+    @users = User.new(params_hash)
     
-    if @user.save
+    if @users.save
       redirect_to "/users"
     else
       render "new"

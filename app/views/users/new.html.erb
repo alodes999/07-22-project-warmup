@@ -4,7 +4,7 @@
 
 <h2>Add New User</h2>
 
-  <%= form_tag "/users" method: "post" do %>
+  <%= form_tag("/users", method: "post") do %>
     <p>Enter user info</p>
     <input type="text" placeholder= "Email" name="users[email]">
     <input type="password" placeholder= "Password" name="users[password]" >
