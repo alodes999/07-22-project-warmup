@@ -21,6 +21,7 @@ class TasksController < ApplicationController
 
   def show
     get_user
+    get_task
   end
 
   def edit
@@ -59,4 +60,7 @@ class TasksController < ApplicationController
     @user = User.find(params[:user_id])
   end
 
+  def get_task
+    @task = Task.find(params[:id])
+  end
 end
