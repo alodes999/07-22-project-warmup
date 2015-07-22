@@ -1,0 +1,19 @@
+<h2>List of Users</h2>
+ 
+ 
+  <table>
+    <tr>
+      <th>ID</th>
+      <th>Email</th>
+      <!-- <th>Edit</th>
+      <th>Delete</th> -->
+    </tr>
+    <% @users.each do |u| %>
+    <tr>
+      <td><%= u.id %></td>
+      <td><%= u.email %></td>
+      <!-- <td><a href= "/users/#<%= u.id %>/edit">Edit a User</a></td>
+      <td><a href= "/users/#<%= u.id %>/delete">Delete a User</a></td> -->
+    </tr>
+    <% end %>
+  </table>
