@@ -45,10 +45,11 @@ class TasksController < ApplicationController
 
   def destroy
     get_user
+    get_task
 
-    @user.destroy
+    @task.destroy
 
-    redirect_to "/users"
+    redirect_to "/users/#{@user.id}/tasks"
   end
 
 
