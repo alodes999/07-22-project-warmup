@@ -1,0 +1,36 @@
+<h2>Welcome to <%= @user.email %>'s page.</h2>
+
+<h2>Tasks</h2>
+
+<table>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  <% @tasks.each do |task| %>
+  <tr>
+    <td><%= task.id %></td>
+    <td><a href='/users/<%= @user.id %>/tasks/<%= task.id %>'><%= task.name %></a></td>
+    <td><a href= "/users/<%= @user.id %>/tasks/<%= task.id %>/edit">Edit a Task</a></td>
+    <td><a href= "/users/<%= @user.id %>/tasks/<%= task.id %>" data-method='delete' data-confirm="Are you sure?">Delete a Task</a></td>
+  </tr>
+  <% end %>
+</table>
+
+
+
+
+
+
+
+
+
+
+<ul>
+  <% @tasks.each do |task| %>
+  <li>
+    <%= task. %>
+  </li>
+</ul>
