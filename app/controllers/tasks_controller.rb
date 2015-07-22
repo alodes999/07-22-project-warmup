@@ -11,12 +11,11 @@ class TasksController < ApplicationController
   end
 
   def create
-    @users = User.new(params_hash)
-
-    if @users.save
-      redirect_to "/users"
+    @task = Task.new(params_hash)
+    if @task.save
+      redirect_to "/users/#{params["tasks"]["user_id"]}/tasks"
     else
-      render "new"
+      render "/users/#{params["tasks"]["user_id"]}/tasks/new"
     end
   end
 
@@ -53,7 +52,7 @@ class TasksController < ApplicationController
   private
 
   def params_hash
-    params["users"].permit(:email, :password)
+    params["tasks"].permit(:name, :description, :user_id)
   end
 
   def get_user

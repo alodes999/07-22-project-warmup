@@ -9,5 +9,7 @@
     <input type="text" placeholder= "Task Name" name="tasks[name]">
     <input type="text" placeholder= "Description" name="tasks[description]">
     
+    <input type="hidden" name="tasks[user_id]" value="<%= @user.id %>">
+    
     <input type="submit">
   <% end %>
