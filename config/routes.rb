@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   get "/login" => "users#login"
 
+  post "/authenticate_login" => "users#authenticate_login"
+
   get "/users" => "users#index"
 
   get "/users/new" => "users#new"
