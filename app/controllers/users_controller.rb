@@ -3,6 +3,27 @@ class UsersController < ApplicationController
   def login
   end
 
+  def authenticate_login
+    entered_email = params["users"]["email"]
+    @user_email = User.find_by(email: entered_email)
+
+    if !@user_email.nil?
+      @valid = true
+      given_pw = params["users"]["password"]
+      actual_pw = BCrypt::Password.new(@user_email.password)
+      if actual_pw == given_pw
+        session[:user_id] = @user_email.id
+        redirect_to "/users/#{session[:user_id]}/tasks"
+      else
+        @valid = false
+        render "login"
+      end
+    else
+      @valid = false
+      render "login"
+    end
+  end
+
   def index
     @users = User.all
   end
@@ -12,7 +33,8 @@ class UsersController < ApplicationController
   end
 
   def create
-    @users = User.new(params_hash)
+    enc_pw = BCrypt::Password.create(params["users"]["password"])
+    @users = User.new({"email" => params["users"]["email"], "password" => enc_pw})
 
     if @users.save
       redirect_to "/users"
