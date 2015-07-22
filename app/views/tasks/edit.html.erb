@@ -1,0 +1,16 @@
+<% @task.errors.full_messages.each do |task| %>
+  <p><%= task %></p>
+<% end %>
+
+<h2>Edit <%= @task.name %></h2>
+
+    <p>Enter information to Edit User </p>
+    
+  <%= form_tag("/users/#{@user.id}/tasks/#{@task.id}", method: "put") do %>    
+    <input type="text" name="tasks[name]" value="<%= @task.name %>">
+    <input type="text" name="tasks[description]" value="<%= @task.description %>">
+    
+    
+    
+    <input type="submit">
+  <% end %>

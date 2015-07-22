@@ -15,7 +15,7 @@ class TasksController < ApplicationController
     if @task.save
       redirect_to "/users/#{params["tasks"]["user_id"]}/tasks"
     else
-      render "/users/#{params["tasks"]["user_id"]}/tasks/new"
+      render "new"
     end
   end
 
@@ -26,16 +26,18 @@ class TasksController < ApplicationController
 
   def edit
     get_user
+    get_task
   end
 
   def update
     get_user
+    get_task
+    
+    @task.name = params["tasks"]["name"]
+    @task.description = params["tasks"]["description"]
 
-    @user.email = params["users"]["email"]
-    @user.password = params["users"]["password"]
-
-    if @user.save
-      redirect_to "/users"
+    if @task.save
+      redirect_to "/users/#{@user.id}/tasks"
     else
       render "edit"
     end
