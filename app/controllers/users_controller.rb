@@ -27,7 +27,7 @@ class UsersController < ApplicationController
   end
   
   def update
-    @user = User.find(params[:id])
+    get_user
     
     @user.email = params["users"]["email"]
     @user.password = params["users"]["password"]
@@ -38,6 +38,15 @@ class UsersController < ApplicationController
       render "edit"
     end
   end
+  
+  def destroy
+    get_user
+    
+    @user.destroy
+    
+    redirect_to "/users"
+  end
+  
   
   private
   

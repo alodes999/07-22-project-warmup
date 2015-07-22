@@ -5,15 +5,15 @@
     <tr>
       <th>ID</th>
       <th>Email</th>
-      <!-- <th>Edit</th>
-      <th>Delete</th> -->
+      <th>Edit</th>
+      <th>Delete</th>
     </tr>
     <% @users.each do |u| %>
     <tr>
       <td><%= u.id %></td>
-      <td><%= u.email %></td>
-      <!-- <td><a href= "/users/#<%= u.id %>/edit">Edit a User</a></td>
-      <td><a href= "/users/#<%= u.id %>/delete">Delete a User</a></td> -->
+      <td><a href='/users/<%= u.id %>'><%= u.email %></a></td>
+      <td><a href= "/users/<%= u.id %>/edit">Edit a User</a></td>
+      <td><a href= "/users/<%= u.id %>" data-method='delete' data-confirm="Are you sure?">Delete a User</a></td>
     </tr>
     <% end %>
   </table>
