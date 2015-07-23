@@ -16,13 +16,13 @@ Rails.application.routes.draw do
 
   delete "/users/:id" => "users#destroy"
 
-  get "/users/:user_id/tasks" => "tasks#index"
+  get "/users/:user_id/tasks" => "tasks#index", :as => 'tasks'
 
   get "/users/:user_id/tasks/new" => "tasks#new"
 
   post "/users/:user_id/tasks" => "tasks#create"
 
-  get "/users/:user_id/tasks/:id" => "tasks#show"
+  get "/users/:user_id/tasks/:id" => "tasks#show", :as => "task"
 
   get "/users/:user_id/tasks/:id/edit" => "tasks#edit"
 
@@ -31,6 +31,22 @@ Rails.application.routes.draw do
   delete "/users/:user_id/tasks/:id" => "tasks#destroy"
 
   get "/users/:id" => "users#show", :as => "user"
+
+
+
+
+
+
+  # TODO  Do route names for task functions.
+  #       Add sessions[:email] to header for layout
+
+
+
+
+
+
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
