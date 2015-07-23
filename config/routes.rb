@@ -10,6 +10,8 @@ Rails.application.routes.draw do
 
   get "/tasks/:id" => "tasks#show", :as => "user_task"
 
+  get "/tasks/:id/edit" => "tasks#edit", :as => "edit_user_task"
+
   get "/login" => "users#login", :as => 'login'
 
   post "/authenticate_login" => "users#authenticate_login", :as => 'authenticate'
