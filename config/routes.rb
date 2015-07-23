@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   get "/dashboard" => "tasks#index", :as => 'dashboard'
 
+  get "/edit_profile" => "users#edit", :as => 'edit_profile'
+
+  get "/new_task" => "tasks#new", :as => "new_user_task"
+
   get "/login" => "users#login", :as => 'login'
 
   post "/authenticate_login" => "users#authenticate_login", :as => 'authenticate'
@@ -14,7 +18,7 @@ Rails.application.routes.draw do
 
   post "/users" => "users#create"
 
-  get "/edit_profile" => "users#edit", :as => 'edit_user'
+  get "/users/:id/edit" => "users#edit", :as => 'edit_user'
 
   put "/users/:id" => "users#update"
 
@@ -22,7 +26,7 @@ Rails.application.routes.draw do
 
   get "/users/:user_id/tasks" => "tasks#index", :as => 'tasks'
 
-  get "/new_task" => "tasks#new", :as => "new_task"
+  get "/users/:user_id/tasks/new" => "tasks#new", :as => "new_task"
 
   post "/users/:user_id/tasks" => "tasks#create"
 

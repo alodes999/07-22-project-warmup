@@ -12,7 +12,7 @@
     <tr>
       <td><%= u.id %></td>
       <td><a href='<%= user_path(u.id) %>'><%= u.email %></a></td>
-      <td><a href= "<%= edit_user_path(u.id) %>">Edit a User</a></td>
+      <td><a href= "<%= edit_profile_path %>">Edit a User</a></td>
       <td><a href= "<%= user_path(u.id) %>" data-method='delete' data-confirm="Are you sure?">Delete a User</a></td>
     </tr>
     <% end %>
