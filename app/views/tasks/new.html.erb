@@ -4,7 +4,7 @@
 
 <h2>Add New Task</h2>
 
-  <%= form_tag(create_task_path(@user.id), method: "post") do %>
+  <%= form_tag(tasks_path(@user.id), method: "post") do %>
     <p>Enter task info</p>
     <input type="text" placeholder= "Task Name" name="tasks[name]">
     <input type="text" placeholder= "Description" name="tasks[description]">

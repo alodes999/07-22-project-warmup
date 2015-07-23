@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   get "/" => "users#login"
 
+  get "/dashboard" => "tasks#index", :as => 'dashboard'
+
   get "/login" => "users#login", :as => 'login'
 
   post "/authenticate_login" => "users#authenticate_login", :as => 'authenticate'
@@ -18,11 +20,11 @@ Rails.application.routes.draw do
 
   delete "/users/:id" => "users#destroy"
 
-  get "/dashboard" => "tasks#index", :as => 'tasks'
+  get "/users/:user_id/tasks" => "tasks#index", :as => 'tasks'
 
   get "/new_task" => "tasks#new", :as => "new_task"
 
-  post "/users/:user_id/tasks" => "tasks#create", :as => "create_task"
+  post "/users/:user_id/tasks" => "tasks#create"
 
   get "/users/:user_id/tasks/:id" => "tasks#show", :as => "task"
 

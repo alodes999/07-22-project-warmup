@@ -14,7 +14,7 @@ class UsersController < ApplicationController
 
       if actual_pw == given_pw
         session[:user_id] = @user_email.id
-        redirect_to tasks_path
+        redirect_to dashboard_path
       else
         @valid = false
         render "login"

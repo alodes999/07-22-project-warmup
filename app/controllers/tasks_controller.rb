@@ -13,7 +13,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(params_hash)
     if @task.save
-      redirect_to tasks_path
+      redirect_to dashboard_path
     else
       render "new"
     end
@@ -37,7 +37,7 @@ class TasksController < ApplicationController
     @task.description = params["tasks"]["description"]
 
     if @task.save
-      redirect_to tasks_path
+      redirect_to dashboard_path
     else
       render "edit"
     end
@@ -49,7 +49,7 @@ class TasksController < ApplicationController
 
     @task.destroy
 
-    redirect_to tasks_path
+    redirect_to dashboard_path
   end
 
 
