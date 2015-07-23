@@ -3,9 +3,12 @@ class TasksController < ApplicationController
   def index
     if !params["log_out"].nil?
       session[:user_id] = nil
+      render "index"
+    else
+      get_user
+      @tasks = Task.where(user_id: @user.id)
+      render "index"
     end
-    get_user
-    @tasks = Task.where(user_id: @user.id)
   end
 
   def new
@@ -63,7 +66,11 @@ class TasksController < ApplicationController
   end
 
   def get_user
-    @user = User.find(session[:user_id])
+    if !session[:user_id].nil?
+      @user = User.find(session[:user_id])
+    else
+      @user = User.new
+    end
   end
 
   def get_task
