@@ -12,7 +12,7 @@
   <% @tasks.each do |task| %>
   <tr>
     <td><%= task.id %></td>
-    <td><a href='<%= task_path(:user_id => @user.id, :id => task.id) %>'><%= task.name %></a></td>
+    <td><a href='<%= user_task_path(:id => task.id) %>'><%= task.name %></a></td>
     <td><a href= "<%= edit_task_path(:user_id => @user.id, :id => task.id) %>">Edit a Task</a></td>
     <td><a href= "<%= task_path(:user_id => @user.id, :id => task.id) %>" data-method='delete' data-confirm="Are you sure?">Delete a Task</a></td>
   </tr>
@@ -21,5 +21,5 @@
 
 <a href="<%= new_user_task_path %>">Add New Task</a>
 <hr>
-<a href="/edit_profile_path">Edit Profile</a>
+<a href="<%= edit_profile_path %>">Edit Profile</a>
 <a href="<%= users_path(@user.id) %>" data-method='delete' data-confirm="Are you sure?">Delete your account</a>
