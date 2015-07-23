@@ -13,7 +13,7 @@ class TasksController < ApplicationController
   def create
     @task = Task.new(params_hash)
     if @task.save
-      redirect_to tasks_path(params["tasks"]["user_id"])
+      redirect_to tasks_path
     else
       render "new"
     end
@@ -37,7 +37,7 @@ class TasksController < ApplicationController
     @task.description = params["tasks"]["description"]
 
     if @task.save
-      redirect_to tasks_path(@user.id)
+      redirect_to tasks_path
     else
       render "edit"
     end
@@ -49,7 +49,7 @@ class TasksController < ApplicationController
 
     @task.destroy
 
-    redirect_to tasks_path(@user.id)
+    redirect_to tasks_path
   end
 
 
@@ -60,7 +60,7 @@ class TasksController < ApplicationController
   end
 
   def get_user
-    @user = User.find(params[:user_id])
+    @user = User.find(session[:user_id])
   end
 
   def get_task

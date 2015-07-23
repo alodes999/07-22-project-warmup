@@ -11,17 +11,17 @@ class UsersController < ApplicationController
       @valid = true
       given_pw = params["users"]["password"]
       actual_pw = BCrypt::Password.new(@user_email.password)
-        
+
       if actual_pw == given_pw
         session[:user_id] = @user_email.id
-        redirect_to tasks_path(@user_email.id)
+        redirect_to tasks_path
       else
         @valid = false
-        render login_path
+        render "login"
       end
     else
       @valid = false
-      render login_path
+      render "login"
     end
   end
 
@@ -81,6 +81,6 @@ class UsersController < ApplicationController
   end
 
   def get_user
-    @user = User.find(params[:id])
+    @user = User.find(session[:user_id])
   end
 end
