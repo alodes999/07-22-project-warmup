@@ -37,8 +37,7 @@ Rails.application.routes.draw do
 
 
 
-  # TODO  Do route names for task functions.
-  #       Add sessions[:email] to header for layout
+  # TODO  Add sessions[:email] to header for layout
 
 
 
