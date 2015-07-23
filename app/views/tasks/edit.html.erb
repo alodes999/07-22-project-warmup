@@ -6,7 +6,7 @@
 
     <p>Enter information to Edit User </p>
     
-  <%= form_tag(task_route(@user.id, @task.id), method: "put") do %>    
+  <%= form_tag(task_path(@user.id, @task.id), method: "put") do %>    
     <input type="text" name="tasks[name]" value="<%= @task.name %>">
     <input type="text" name="tasks[description]" value="<%= @task.description %>">
     
