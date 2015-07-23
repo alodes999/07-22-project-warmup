@@ -18,13 +18,13 @@ Rails.application.routes.draw do
 
   get "/users/:user_id/tasks" => "tasks#index", :as => 'tasks'
 
-  get "/users/:user_id/tasks/new" => "tasks#new"
+  get "/users/:user_id/tasks/new" => "tasks#new", :as => "new_task"
 
   post "/users/:user_id/tasks" => "tasks#create"
 
   get "/users/:user_id/tasks/:id" => "tasks#show", :as => "task"
 
-  get "/users/:user_id/tasks/:id/edit" => "tasks#edit"
+  get "/users/:user_id/tasks/:id/edit" => "tasks#edit", :as => "edit_task"
 
   put "/users/:user_id/tasks/:id" => "tasks#update"
 

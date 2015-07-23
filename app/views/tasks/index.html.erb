@@ -13,7 +13,7 @@
   <tr>
     <td><%= task.id %></td>
     <td><a href='<%= task_path(:user_id => @user.id, :id => task.id) %>'><%= task.name %></a></td>
-    <td><a href= "/users/<%= @user.id %>/tasks/<%= task.id %>/edit">Edit a Task</a></td>
+    <td><a href= "<%= edit_task_path(:user_id => @user.id, :id => task.id) %>">Edit a Task</a></td>
     <td><a href= "<%= task_path(:user_id => @user.id, :id => task.id) %>" data-method='delete' data-confirm="Are you sure?">Delete a Task</a></td>
   </tr>
   <% end %>
