@@ -1,6 +1,9 @@
 class TasksController < ApplicationController
 
   def index
+    if !params["log_out"].nil?
+      session[:user_id] = nil
+    end
     get_user
     @tasks = Task.where(user_id: @user.id)
   end

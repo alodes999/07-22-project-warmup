@@ -1,5 +1,15 @@
 <h2>Welcome to <%= @user.email %>'s page.</h2>
 
+<div>
+  <form action="<%= dashboard_path %>">
+    <input type="hidden" name="log_out" value="true">
+    <input type="submit" value="Log Out">
+  </form>
+</div>
+
+<a href="<%= new_user_task_path %>">Add New Task</a>
+<hr>
+
 <h2>Tasks</h2>
 
 <table>
